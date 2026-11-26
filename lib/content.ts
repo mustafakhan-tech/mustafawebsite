@@ -198,11 +198,21 @@ export type Project = {
   year: string;
   summary: string;
   stat?: Stat;
+  /* Links to files in /public only show once the file exists. */
   links: { label: string; href: string }[];
 };
 
 /* Things I've built. Newest first. */
 export const projects: Project[] = [
+  {
+    name: "How Ramp Grows: A Growth Teardown",
+    role: "Growth strategy",
+    year: "2026",
+    summary:
+      "A breakdown of how Ramp grows through sales, brand and creators. It covers the risk in its creator program and five experiments I'd run next, with how to measure them.",
+    stat: { value: "97%", label: "the share of Ramp's tracked YouTube sponsorships that run on one show (TBPN, now owned by OpenAI)" },
+    links: [{ label: "Read the teardown (PDF)", href: "/ramp-teardown.pdf" }],
+  },
   {
     name: "Deal Check",
     role: "Designer and developer",

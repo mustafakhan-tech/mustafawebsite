@@ -1,4 +1,12 @@
+import fs from "node:fs";
+import path from "node:path";
 import type { Project } from "@/lib/content";
+
+/* A link to a file in /public is only shown once that file exists. */
+function available(href: string) {
+  if (!href.startsWith("/")) return true;
+  return fs.existsSync(path.join(process.cwd(), "public", href));
+}
 
 export default function ProjectRow({ project }: { project: Project }) {
   return (
@@ -8,7 +16,7 @@ export default function ProjectRow({ project }: { project: Project }) {
         <p className="ui mb-3 text-[16px] text-money">{project.role}, {project.year}</p>
         <p className="prose-w">{project.summary}</p>
         <ul className="ui m-0 flex list-none flex-wrap gap-x-6 gap-y-2 p-0 text-[17px]">
-          {project.links.map((l) => (
+          {project.links.filter((l) => available(l.href)).map((l) => (
             <li key={l.href}>
               <a className="link" href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
             </li>
