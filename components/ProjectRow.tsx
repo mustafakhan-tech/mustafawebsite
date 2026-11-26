@@ -15,10 +15,12 @@ export default function ProjectRow({ project }: { project: Project }) {
           ))}
         </ul>
       </div>
+      {project.stat && (
       <div className="md:text-right">
         <p className="wide num mb-1 text-[2.6rem] leading-none text-money md:text-[3.2rem]">{project.stat.value}</p>
         <p className="ui mb-0 text-[16px] text-ink/75 md:ml-auto md:max-w-[30ch]">{project.stat.label}</p>
       </div>
+      )}
     </article>
   );
 }

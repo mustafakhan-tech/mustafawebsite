@@ -197,12 +197,23 @@ export type Project = {
   role: string;
   year: string;
   summary: string;
-  stat: Stat;
+  stat?: Stat;
   links: { label: string; href: string }[];
 };
 
 /* Things I've built. Newest first. */
 export const projects: Project[] = [
+  {
+    name: "Deal Check",
+    role: "Designer and developer",
+    year: "2026",
+    summary:
+      "A creator-deal calculator that shows expected sales against the break-even point, checks the asking price against market rates, and writes the counter-offer.",
+    links: [
+      { label: "Live demo", href: "https://scout-hazel-theta.vercel.app/deal" },
+      { label: "GitHub", href: "https://github.com/mustafakhan-tech/scout" },
+    ],
+  },
   {
     name: "Scout",
     role: "Designer and developer",
