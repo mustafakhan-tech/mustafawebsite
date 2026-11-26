@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.mustafa-khan.com"),
   title: { default: "Mustafa Khan: sales, growth and go-to-market", template: "%s | Mustafa Khan" },
   description:
-    "Mustafa Khan brings in revenue and users for early-stage companies. Founder of Nexus Partners ($800K+ in brand deals), co-founder and COO of Koba, growth and marketing for Philo.",
+    "Mustafa Khan brings in revenue, users and partnerships. Founder of Nexus Partners ($800K+ in brand deals), co-founder and COO of Koba, growth and marketing for Philo.",
   openGraph: { images: ["/img/mustafa.jpg"] },
 };
 export const viewport: Viewport = { themeColor: "#EDF1EC" };

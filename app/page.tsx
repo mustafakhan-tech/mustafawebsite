@@ -16,7 +16,7 @@ export default function Home() {
             Khan
           </h1>
           <p className="mt-8 max-w-[30ch] font-serif text-[clamp(1.45rem,2.6vw,2rem)] leading-snug">
-            I bring in revenue and users for early-stage companies.
+            I bring in revenue, users and partnerships.
           </p>
           <p className="prose-w mt-5">
             Founder of <Link className="link" href="/work/nexus-partners">Nexus Partners</Link>, co-founder and COO of{" "}
@@ -29,7 +29,7 @@ export default function Home() {
             </a>
             <span className="flex items-center gap-2">
               <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-money" aria-hidden="true" />
-              Open to sales, growth and go-to-market roles at startups
+              Open to sales, growth, partnerships and go-to-market roles
             </span>
           </div>
         </div>

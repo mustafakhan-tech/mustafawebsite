@@ -18,7 +18,7 @@ export default function About() {
             I started on the doors at Firefly Solar. Then I started Nexus Partners to broker deals between creators and brands, ran growth for Philo from the day Qendrim built it, and co-founded Koba.
           </p>
           <p className="prose-w">
-            I&apos;m looking for a sales, growth or go-to-market role at a startup where I can do more of the same.
+            I&apos;m looking for a sales, growth, partnerships or go-to-market role at any company that needs someone to bring in revenue and users.
           </p>
         </div>
         <div className="relative aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-[28px] md:mt-4">

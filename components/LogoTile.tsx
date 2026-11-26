@@ -6,7 +6,7 @@ export default function LogoTile({ study, size = "md" }: { study: CaseStudy; siz
   if (study.logo) {
     return (
       <span className={`${box} relative block overflow-hidden rounded-2xl ${study.logo.dark ? "bg-black" : "bg-mint"}`}>
-        <Image src={study.logo.src} alt={study.logo.alt} fill sizes="88px" className={study.logo.dark ? "object-contain" : "object-contain p-1"} />
+        <Image src={study.logo.src} alt={study.logo.alt} fill sizes="88px" className={study.logo.cover ? "object-cover" : study.logo.dark ? "object-contain" : "object-contain p-1"} />
       </span>
     );
   }

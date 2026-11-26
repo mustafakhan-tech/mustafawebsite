@@ -21,7 +21,7 @@ export type Block =
 export type CaseStudy = {
   slug: string;
   name: string;
-  logo?: { src: string; alt: string; dark?: boolean };
+  logo?: { src: string; alt: string; dark?: boolean; cover?: boolean };
   role: string;
   when: string;
   status: string;
@@ -39,7 +39,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "koba",
     name: "Koba",
-    logo: { src: "/img/koba-monkey.webp", alt: "Koba's monkey mascot waving" },
+    logo: { src: "/img/koba-icon.jpg", alt: "Koba app icon", cover: true },
     role: "Co-founder and COO",
     when: "December 2025 to now",
     status: "Private beta",

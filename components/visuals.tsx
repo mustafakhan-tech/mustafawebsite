@@ -10,7 +10,7 @@ export function KobaVisual() {
         </div>
       </div>
       <div className="flex flex-col items-center gap-4 md:items-start">
-        <Image src="/img/koba-monkey.webp" alt="Koba's monkey mascot waving" width={220} height={293} className="h-auto w-[160px] md:w-[220px]" />
+        <Image src="/img/koba-mascot.webp" alt="Koba's monkey mascot" width={220} height={220} className="h-auto w-[150px] md:w-[200px]" />
         <figcaption className="ui max-w-[34ch] text-center text-[16px] md:text-left">
           Koba in a group chat. Someone sends a receipt, Koba splits it four ways, then redoes the split when a friend says she left before dinner.
         </figcaption>
