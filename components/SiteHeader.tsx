@@ -1,27 +1,16 @@
 import Link from "next/link";
-import KnockButton from "./KnockButton";
-
-const nav = [
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/resume", label: "Resume" },
-];
+import { person } from "@/lib/content";
 
 export default function SiteHeader() {
   return (
-    <header className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-6 md:px-10">
-      <Link href="/" className="font-display text-3xl font-extrabold uppercase no-underline">
-        M. Khan
+    <header className="mx-auto flex max-w-page items-center justify-between gap-4 px-6 pb-4 pt-6 md:px-12">
+      <Link href="/" className="semi whitespace-nowrap text-lg no-underline">
+        Mustafa Khan
       </Link>
-      <nav aria-label="Main" className="flex items-center gap-5 md:gap-8">
-        {nav.map((n) => (
-          <Link key={n.href} href={n.href} className="font-display text-2xl font-bold uppercase no-underline hover:underline">
-            {n.label}
-          </Link>
-        ))}
-        <span className="hidden md:inline-block">
-          <KnockButton label="Knock" />
-        </span>
+      <nav aria-label="Main" className="ui flex items-center gap-5 text-[17px] font-medium md:gap-8">
+        <Link href="/work" className="link no-underline hover:underline"><span className="sm:hidden">Work</span><span className="hidden sm:inline">Case studies</span></Link>
+        <Link href="/about" className="link no-underline hover:underline">About</Link>
+        <a href={`mailto:${person.email}`} className="link no-underline hover:underline">Email</a>
       </nav>
     </header>
   );

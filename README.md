@@ -1,6 +1,6 @@
 # Mustafa Khan: personal site
 
-Next.js 14 (App Router), TypeScript and Tailwind. All content lives in `lib/content.ts`.
+Next.js 14 (App Router), TypeScript and Tailwind. All copy and numbers live in `lib/content.ts`.
 
 ## Run locally
 

@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
-import WorkRow from "@/components/WorkRow";
+import CaseRow from "@/components/CaseRow";
 import { caseStudies } from "@/lib/content";
 
-export const metadata: Metadata = { title: "Work" };
+export const metadata: Metadata = { title: "Case studies" };
 
 export default function WorkIndex() {
   return (
-    <div className="mx-auto max-w-6xl px-5 py-10 md:px-10">
-      <h1 className="mb-6 text-7xl md:text-9xl">Work</h1>
-      <p className="mb-12">
-        The companies I&apos;ve built or helped build. Each one opens into a case study. New projects get added here as I finish them.
+    <div className="mx-auto max-w-page px-6 pt-10 md:px-12 md:pt-16">
+      <h1 className="wide mb-6 text-[clamp(2.8rem,8vw,6rem)] leading-none">Case studies</h1>
+      <p className="prose-w mb-12 text-[1.2rem]">
+        How I&apos;ve brought in revenue and users for the companies I&apos;ve built and helped build. New projects get added here as I finish them.
       </p>
-      {caseStudies.filter((c) => c.published).map((s) => (
-        <WorkRow key={s.slug} study={s} />
-      ))}
+      <div className="divide-y divide-[color:var(--rule)] border-y border-[color:var(--rule)]">
+        {caseStudies.map((c) => (
+          <CaseRow key={c.slug} study={c} />
+        ))}
+      </div>
     </div>
   );
 }

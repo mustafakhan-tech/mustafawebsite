@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Tape from "@/components/Tape";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
-const display = localFont({
-  src: "./fonts/BigShouldersDisplay.ttf",
-  variable: "--font-display",
+const sans = localFont({
+  src: "./fonts/Archivo.woff2",
+  variable: "--font-sans",
   weight: "100 900",
+  declarations: [{ prop: "font-stretch", value: "62% 125%" }],
   display: "swap",
 });
 const serif = localFont({
@@ -22,18 +22,19 @@ const serif = localFont({
 });
 
 export const metadata: Metadata = {
-  title: { default: "Mustafa Khan: sales, partnerships and go-to-market", template: "%s | Mustafa Khan" },
+  metadataBase: new URL("https://www.mustafa-khan.com"),
+  title: { default: "Mustafa Khan: sales, growth and go-to-market", template: "%s | Mustafa Khan" },
   description:
-    "Mustafa Khan sells and builds go-to-market for startups. Founder of Nexus Partners, co-founder of Philo and Solus, based in Edmonton.",
+    "Mustafa Khan brings in revenue and users for early-stage companies. Founder of Nexus Partners ($800K+ in brand deals), co-founder and COO of Koba, growth and marketing for Philo.",
+  openGraph: { images: ["/img/mustafa.jpg"] },
 };
-export const viewport: Viewport = { themeColor: "#DADDDF" };
+export const viewport: Viewport = { themeColor: "#EDF1EC" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${serif.variable}`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <body>
-        <Tape />
-        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-14 focus:top-2 focus:z-50 focus:bg-tape focus:px-3 focus:py-1">
+        <a href="#main" className="ui sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded focus:bg-ink focus:px-3 focus:py-1 focus:text-paper">
           Skip to content
         </a>
         <SiteHeader />
