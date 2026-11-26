@@ -1,6 +1,10 @@
+"use client";
+import { usePathname } from "next/navigation";
 import { person } from "@/lib/content";
 
 export default function SiteFooter() {
+  // The home page has its own contact page in the deck.
+  if (usePathname() === "/") return null;
   return (
     <footer className="mx-auto mt-28 max-w-page px-6 md:px-12">
       <div className="border-t border-[color:var(--rule)] py-12">

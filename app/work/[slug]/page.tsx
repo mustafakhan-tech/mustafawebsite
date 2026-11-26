@@ -77,7 +77,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
         ))}
       </div>
 
-      <section aria-labelledby="results" className="mt-20 rounded-[28px] bg-ink px-6 py-10 text-paper md:px-10 md:py-12">
+      <section aria-labelledby="results" className="mt-20 rounded-[28px] bg-mint px-6 py-10 text-ink md:px-10 md:py-12">
         <h2 id="results" className="semi mb-8 text-[1.75rem]">Results</h2>
         <dl className={`m-0 grid grid-cols-2 gap-x-8 gap-y-8 ${c.results.length === 4 ? "md:grid-cols-4" : "md:grid-cols-3"}`}>
           {c.results.map((r) => (
@@ -85,7 +85,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
               <dt className="sr-only">{r.label}</dt>
               <dd className="m-0">
                 <span className="wide num block text-[clamp(2rem,3.4vw,2.9rem)] leading-none text-leaf">{r.value}</span>
-                <span className="ui mt-2 block text-[16px] text-paper/80">{r.label}</span>
+                <span className="ui mt-2 block text-[16px] text-ink/75">{r.label}</span>
               </dd>
             </div>
           ))}

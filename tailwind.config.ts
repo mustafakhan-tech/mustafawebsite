@@ -3,7 +3,7 @@ const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      colors: { paper: "#EDF1EC", ink: "#10241A", money: "#2C6E4E", mint: "#CDE6D4", leaf: "#9FD3B2" },
+      colors: { paper: "#100E0B", ink: "#F2ECE2", money: "#E3A563", mint: "#1F1A14", leaf: "#E3A563" },
       fontFamily: { sans: ["var(--font-sans)", "system-ui", "sans-serif"], serif: ["var(--font-serif)", "Georgia", "serif"] },
       maxWidth: { page: "1120px" },
     },

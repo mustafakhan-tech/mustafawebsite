@@ -1,93 +1,145 @@
 import Link from "next/link";
 import Image from "next/image";
-import Rosette from "@/components/Rosette";
 import CaseRow from "@/components/CaseRow";
 import ProjectRow from "@/components/ProjectRow";
+import Deck, { type DeckPage } from "@/components/Deck";
+import TravelGlobe from "@/components/TravelGlobe";
+import PostcardWall from "@/components/PostcardWall";
 import { caseStudies, ledger, person, projects } from "@/lib/content";
+import { clips, photos } from "@/lib/travel";
 
-export default function Home() {
-  return (
-    <div className="mx-auto max-w-page px-6 md:px-12">
-      <section className="relative pb-14 pt-10 md:pb-20 md:pt-16">
-        <Rosette className="pointer-events-none absolute -right-10 top-6 hidden w-[380px] md:block lg:-right-16 lg:w-[420px]" />
-        <div className="relative">
-          <h1 className="wide text-[clamp(3.2rem,10.5vw,7.8rem)] leading-[0.92]">
-            Mustafa
-            <br />
-            Khan
-          </h1>
-          <p className="mt-8 max-w-[30ch] font-serif text-[clamp(1.45rem,2.6vw,2rem)] leading-snug">
-            I bring in revenue, users and partnerships.
-          </p>
-          <p className="prose-w mt-5">
-            Founder of <Link className="link" href="/work/nexus-partners">Nexus Partners</Link>, co-founder and COO of{" "}
-            <Link className="link" href="/work/koba">Koba</Link>, and growth and marketing for{" "}
-            <Link className="link" href="/work/philo">Philo</Link>. Before any of that, I sold solar door to door.
-          </p>
-          <div className="ui mt-8 flex flex-wrap items-center gap-x-6 gap-y-4 text-[17px]">
-            <a href={`mailto:${person.email}`} className="rounded-full bg-ink px-6 py-3 font-semibold text-paper no-underline transition-colors hover:bg-money">
-              Email me
-            </a>
-            <span className="flex items-center gap-2">
+const postcardIds = ["q055", "p094", "q121", "p089", "q087", "p070", "p043", "q111", "p113", "q018", "p125", "p050", "q139", "p068", "q012"];
+const postcards = postcardIds.map((id) => photos.find((p) => p.id === id)).filter((p): p is (typeof photos)[number] => Boolean(p));
+
+const h2 = "wide text-[clamp(2rem,4.5vw,3.4rem)] leading-none";
+
+const pages: DeckPage[] = [
+  {
+    id: "intro",
+    label: "Intro",
+    content: (
+      <div className="mt-auto">
+        <h1 className="wide text-[clamp(3.4rem,11vw,9.5rem)] leading-[0.9] [text-shadow:0_4px_40px_rgba(0,0,0,0.45)]">
+          Mustafa
+          <br />
+          Khan
+        </h1>
+        <div className="mt-6 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="mb-3 max-w-[34ch] font-serif text-[clamp(1.3rem,2.4vw,1.75rem)] leading-snug">I bring in revenue, users and partnerships.</p>
+            <p className="ui mb-0 flex items-center gap-2 text-[15px] text-white/80">
               <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-money" aria-hidden="true" />
               Open to sales, growth, partnerships and go-to-market roles
-            </span>
+            </p>
+          </div>
+          <div className="ui flex flex-wrap items-center gap-3 text-[16px]">
+            <a href={`mailto:${person.email}`} className="rounded-full bg-white px-6 py-3 font-semibold text-black no-underline transition-colors hover:bg-money">Email me</a>
+            <a href="#numbers" className="rounded-full border border-white/50 px-6 py-3 font-semibold no-underline backdrop-blur-sm transition-colors hover:border-white">Turn the page</a>
           </div>
         </div>
-      </section>
-
-      <section aria-label="Results" className="border-t-2 border-ink">
-        <ul className="m-0 list-none p-0">
+      </div>
+    ),
+  },
+  {
+    id: "numbers",
+    label: "Numbers",
+    content: (
+      <>
+        <h2 className={`${h2} mb-8`}>By the numbers</h2>
+        <ul className="m-0 list-none border-t border-white/40 p-0">
           {ledger.map((row) => (
-            <li key={row.value} className="border-b border-[color:var(--rule)]">
-              <Link href={row.href ?? "#"} className="row-link -mx-4 grid items-center gap-x-8 rounded-xl gap-y-1 px-4 py-5 no-underline md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-                <span className="wide num text-[clamp(2.6rem,6vw,4.4rem)] leading-none text-money">{row.value}</span>
-                <span className="text-[1.2rem] leading-snug">{row.label}</span>
+            <li key={row.value} className="border-b border-white/15">
+              <Link href={row.href ?? "#"} className="row-link -mx-4 grid items-center gap-x-8 gap-y-1 rounded-xl px-4 py-4 no-underline md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+                <span className="wide num text-[clamp(2.3rem,5.4vw,4rem)] leading-none text-money">{row.value}</span>
+                <span className="text-[1.15rem] leading-snug">{row.label}</span>
               </Link>
             </li>
           ))}
         </ul>
-      </section>
-
-      <section aria-labelledby="work" className="pt-24">
+      </>
+    ),
+  },
+  {
+    id: "work",
+    label: "Case studies",
+    content: (
+      <>
         <div className="mb-6 flex items-end justify-between gap-4">
-          <h2 id="work" className="wide text-[clamp(2rem,4.5vw,3.2rem)] leading-none">Case studies</h2>
-          <Link href="/work" className="ui link text-[17px]">All case studies</Link>
+          <h2 className={h2}>Case studies</h2>
+          <Link href="/work" className="ui link text-[16px]">All case studies</Link>
         </div>
-        <div className="divide-y divide-[color:var(--rule)] border-y border-[color:var(--rule)]">
-          {caseStudies.map((c) => (
-            <CaseRow key={c.slug} study={c} />
-          ))}
+        <div className="divide-y divide-white/15 border-y border-white/15">
+          {caseStudies.map((c) => <CaseRow key={c.slug} study={c} />)}
         </div>
-      </section>
-
-      <section aria-labelledby="projects" className="pt-24">
+      </>
+    ),
+  },
+  {
+    id: "projects",
+    label: "Projects",
+    content: (
+      <>
         <div className="mb-2 flex items-end justify-between gap-4">
-          <h2 id="projects" className="wide text-[clamp(2rem,4.5vw,3.2rem)] leading-none">Projects</h2>
-          <Link href="/projects" className="ui link text-[17px]">All projects</Link>
+          <h2 className={h2}>Projects</h2>
+          <Link href="/projects" className="ui link text-[16px]">All projects</Link>
         </div>
-        <div className="divide-y divide-[color:var(--rule)] border-b border-[color:var(--rule)]">
-          {projects.slice(0, 3).map((p) => (
-            <ProjectRow key={p.name} project={p} />
-          ))}
+        <div className="divide-y divide-white/15 border-b border-white/15">
+          {projects.slice(0, 3).map((p) => <ProjectRow key={p.name} project={p} />)}
         </div>
-      </section>
-
-      <section aria-labelledby="me" className="grid items-center gap-10 pt-24 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
-        <div className="relative aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-[28px]">
-          <Image src="/img/mustafa.jpg" alt="Mustafa Khan at a table by a sunlit window" fill sizes="(min-width: 768px) 420px, 100vw" className="object-cover" />
+      </>
+    ),
+  },
+  {
+    id: "travel",
+    label: "Where I've been",
+    content: (
+      <>
+        <h2 className={`${h2} mb-3`}>Where I&apos;ve been</h2>
+        <p className="prose-w mb-6 text-[1.1rem] text-white/80">Nexus Partners manages creators on six continents. I&apos;ve been to four of them myself.</p>
+        <TravelGlobe photos={photos} />
+      </>
+    ),
+  },
+  {
+    id: "postcards",
+    label: "Postcards",
+    content: (
+      <>
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+          <h2 className={h2}>Postcards</h2>
+          <p className="ui mb-0 text-[15px] text-white/75">Drag them around. Tap one to flip it over.</p>
+        </div>
+        <PostcardWall photos={postcards} />
+      </>
+    ),
+  },
+  {
+    id: "contact",
+    label: "Say hi",
+    content: (
+      <div className="grid items-center gap-10 md:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] md:gap-14">
+        <div className="relative hidden aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-[28px] md:block">
+          <Image src="/img/mustafa.jpg" alt="Mustafa Khan at a table by a sunlit window" fill sizes="340px" className="object-cover" />
         </div>
         <div>
-          <h2 id="me" className="wide mb-6 text-[clamp(2rem,4.5vw,3.2rem)] leading-none">I started on the doors</h2>
-          <p className="prose-w">
-            My first sales job was knocking on doors for Firefly Solar. I sold more than $2M in solar in my first six months and went from setting appointments to closing deals in under a month.
+          <h2 className={`${h2} mb-5`}>I started on the doors</h2>
+          <p className="prose-w text-white/85">
+            My first sales job was knocking on doors for Firefly Solar. I sold more than $2M in solar in my first six months and went from setting appointments to closing deals in under a month. I took the same approach into creator deals, app growth and a startup of my own.
           </p>
-          <p className="prose-w">
-            I took the same approach into creator deals, app growth and a startup of my own. I study a market, find the people who need the thing, and close.
-          </p>
-          <Link href="/about" className="ui link text-[17px]">More about me</Link>
+          <p className="ui mb-2 mt-8 text-[16px] text-money">Have a role or a deal in mind?</p>
+          <a href={`mailto:${person.email}`} className="wide block text-[clamp(1.4rem,3.4vw,2.6rem)] leading-[1.1] no-underline hover:text-money">khan11mustafa<wbr />@gmail.com</a>
+          <ul className="ui mt-6 flex list-none flex-wrap gap-x-7 gap-y-2 p-0 text-[16px]">
+            {person.links.map((l) => (
+              <li key={l.href}><a className="link" href={l.href} rel="noopener noreferrer" target="_blank">{l.label}</a></li>
+            ))}
+            <li><Link className="link" href="/about">About me</Link></li>
+          </ul>
         </div>
-      </section>
-    </div>
-  );
+      </div>
+    ),
+  },
+];
+
+export default function Home() {
+  return <Deck pages={pages} clips={clips} />;
 }

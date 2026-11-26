@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import SoundButton from "@/components/SoundButton";
 
 const sans = localFont({
   src: "./fonts/Archivo.woff2",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     "Mustafa Khan brings in revenue, users and partnerships. Founder of Nexus Partners ($800K+ in brand deals), co-founder and COO of Koba, growth and marketing for Philo.",
   openGraph: { images: ["/img/mustafa.jpg"] },
 };
-export const viewport: Viewport = { themeColor: "#EDF1EC" };
+export const viewport: Viewport = { themeColor: "#100E0B" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -38,8 +39,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <SiteHeader />
-        <main id="main">{children}</main>
+        <main id="main" className="pt-20">{children}</main>
         <SiteFooter />
+        <SoundButton />
       </body>
     </html>
   );
