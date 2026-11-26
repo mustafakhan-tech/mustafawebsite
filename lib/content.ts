@@ -2,7 +2,10 @@ export const person = {
   name: "Mustafa Khan",
   place: "Edmonton, Canada",
   email: "khan11mustafa@gmail.com",
-  links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/mustafa-khan-77b062327/" }],
+  links: [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/mustafa-khan-77b062327/" },
+    { label: "GitHub", href: "https://github.com/mustafakhan-tech" },
+  ],
 };
 
 /* The four numbers on the home page ledger. */
@@ -188,3 +191,28 @@ export const firefly = {
   ] as Stat[],
   outro: "I was one of the top setters at the company the whole time I was there.",
 };
+
+export type Project = {
+  name: string;
+  role: string;
+  year: string;
+  summary: string;
+  stat: Stat;
+  links: { label: string; href: string }[];
+};
+
+/* Things I've built. Newest first. */
+export const projects: Project[] = [
+  {
+    name: "Scout",
+    role: "Designer and developer",
+    year: "2026",
+    summary:
+      "Finds YouTube, Instagram and TikTok creators before they break out. It scores each one's momentum, brand-deal history and whether they have a manager, using their latest posts.",
+    stat: { value: "99", label: "the breakout score it gave a 22K-follower creator averaging 136K views" },
+    links: [
+      { label: "Live demo", href: "https://scout-hazel-theta.vercel.app" },
+      { label: "GitHub", href: "https://github.com/mustafakhan-tech/scout" },
+    ],
+  },
+];

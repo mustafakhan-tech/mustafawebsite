@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Rosette from "@/components/Rosette";
 import CaseRow from "@/components/CaseRow";
-import { caseStudies, ledger, person } from "@/lib/content";
+import ProjectRow from "@/components/ProjectRow";
+import { caseStudies, ledger, person, projects } from "@/lib/content";
 
 export default function Home() {
   return (
@@ -56,6 +57,18 @@ export default function Home() {
         <div className="divide-y divide-[color:var(--rule)] border-y border-[color:var(--rule)]">
           {caseStudies.map((c) => (
             <CaseRow key={c.slug} study={c} />
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="projects" className="pt-24">
+        <div className="mb-2 flex items-end justify-between gap-4">
+          <h2 id="projects" className="wide text-[clamp(2rem,4.5vw,3.2rem)] leading-none">Projects</h2>
+          <Link href="/projects" className="ui link text-[17px]">All projects</Link>
+        </div>
+        <div className="divide-y divide-[color:var(--rule)] border-b border-[color:var(--rule)]">
+          {projects.slice(0, 3).map((p) => (
+            <ProjectRow key={p.name} project={p} />
           ))}
         </div>
       </section>
