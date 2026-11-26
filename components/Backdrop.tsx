@@ -14,6 +14,16 @@ export default function Backdrop({ clips, dim }: { clips: Clip[]; dim: boolean }
   const [shown, setShown] = useState(0);
   const busy = useRef(false);
   const lens = useRef<HTMLDivElement>(null);
+  const [cut, setCut] = useState<"d" | "m">("d");
+
+  // landscape cut on wide screens, portrait cut on tall ones
+  useEffect(() => {
+    const mq = window.matchMedia("(orientation: portrait)");
+    const set = () => setCut(mq.matches ? "m" : "d");
+    set();
+    mq.addEventListener("change", set);
+    return () => mq.removeEventListener("change", set);
+  }, []);
 
   // start the first clip
   useEffect(() => {
@@ -77,10 +87,10 @@ export default function Backdrop({ clips, dim }: { clips: Clip[]; dim: boolean }
         const c = clips[slot[k]];
         return (
           <video
-            key={`${k}-${c.id}`}
+            key={`${k}-${c.id}-${cut}`}
             ref={refs[k]}
-            src={`/media/clips/${c.id}.mp4`}
-            poster={`/media/clips/${c.id}.jpg`}
+            src={`/media/clips/${c.id}_${cut}.mp4`}
+            poster={`/media/clips/${c.id}_${cut}.jpg`}
             muted
             playsInline
             preload="auto"
