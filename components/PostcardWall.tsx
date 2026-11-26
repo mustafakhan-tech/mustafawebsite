@@ -60,7 +60,7 @@ export default function PostcardWall({ photos }: { photos: TravelPhoto[] }) {
   }
 
   return (
-    <div ref={area} className="postcards relative h-[640px] overflow-hidden rounded-[28px] bg-mint md:h-[720px]">
+    <div ref={area} className="postcards relative h-[max(440px,60svh)] overflow-hidden rounded-[28px] bg-black/35 ring-1 ring-white/10 backdrop-blur-sm">
       {cards.map((c, i) => {
         const wide = c.p.w > c.p.h;
         return (

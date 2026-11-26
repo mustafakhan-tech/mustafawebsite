@@ -98,8 +98,8 @@ export default function TravelGlobe({ photos }: { photos: TravelPhoto[] }) {
   }
 
   return (
-    <div className="grid items-start gap-10 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
-      <div className="relative mx-auto aspect-square w-full max-w-[620px] md:sticky md:top-8">
+    <div className="grid items-center gap-8 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+      <div className="relative mx-auto aspect-square w-full max-w-[min(560px,58svh)]">
         <canvas
           ref={canvas}
           aria-label={`A globe with pins on ${places.length} places I've photographed`}
@@ -119,26 +119,27 @@ export default function TravelGlobe({ photos }: { photos: TravelPhoto[] }) {
       <div>
         <p className="wide num mb-1 whitespace-nowrap text-[clamp(2.2rem,3.8vw,3.2rem)] leading-none text-money">{countries.length} countries</p>
         <p className="ui mb-6 text-[17px] text-ink/70">{places.length} places, 4 continents. Pick one to fly there.</p>
-        {countries.map((c) => (
-          <div key={c} className="mb-3">
-            <p className="ui mb-1.5 text-[14px] text-ink/60">{c}</p>
-            <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
-              {places.filter((p) => p.country === c).map((p) => (
-                <li key={p.name}>
+        <dl className="m-0 grid gap-y-2">
+          {countries.map((c) => (
+            <div key={c} className="grid grid-cols-[6.5rem_1fr] items-baseline gap-x-3 border-t border-white/10 pt-2">
+              <dt className="ui text-[14px] text-white/55">{c}</dt>
+              <dd className="m-0 flex flex-wrap gap-x-1 gap-y-1">
+                {places.filter((p) => p.country === c).map((p) => (
                   <button
+                    key={p.name}
                     type="button"
                     onMouseEnter={() => focus(p)}
                     onFocus={() => focus(p)}
                     onClick={() => focus(p)}
-                    className={`ui rounded-full border px-3 py-1 text-[14px] transition-colors ${active?.name === p.name ? "border-money bg-money text-paper" : "border-[color:var(--rule)] hover:border-money"}`}
+                    className={`ui rounded-full px-2.5 py-0.5 text-[15px] transition-colors ${active?.name === p.name ? "bg-money text-paper" : "hover:bg-white/10"}`}
                   >
                     {p.name}
                   </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+                ))}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 /* Generated from Mustafa's Photos library. GPS data is stripped from the published files. */
 export type TravelPhoto = { id: string; place: string; when: string; lat: number; lon: number; w: number; h: number };
-export type Clip = { id: string; place: string; when: string };
+export type Clip = { id: string; place: string; when: string; dur: number };
 export const photos: TravelPhoto[] = [
  {
   "id": "p003",
@@ -484,91 +484,109 @@ export const clips: Clip[] = [
  {
   "id": "q055",
   "place": "Paris, France",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 2.23
  },
  {
   "id": "q139",
   "place": "Sahara, Morocco",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 4.0
  },
  {
   "id": "q018",
   "place": "Vancouver, Canada",
-  "when": "July 2026"
+  "when": "July 2026",
+  "dur": 4.93
  },
  {
   "id": "q082",
   "place": "Ugljan, Croatia",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 2.23
  },
  {
   "id": "q125",
   "place": "Aït Benhaddou, Morocco",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 3.07
  },
  {
   "id": "q005",
   "place": "Calgary, Canada",
-  "when": "March 2025"
+  "when": "March 2025",
+  "dur": 4.1
  },
  {
   "id": "q074",
   "place": "Paris, France",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 2.0
  },
  {
   "id": "q167",
   "place": "Todra Gorge, Morocco",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 4.83
  },
  {
   "id": "q078",
   "place": "Versailles, France",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 2.97
  },
  {
   "id": "q058",
   "place": "Paris, France",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 4.5
  },
  {
   "id": "q017",
   "place": "Somewhere over Quebec",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 3.47
  },
  {
   "id": "q177",
   "place": "Murree, Pakistan",
-  "when": "February 2025"
+  "when": "February 2025",
+  "dur": 4.0
  },
  {
   "id": "c050",
   "place": "Paris, France",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 3.93
  },
  {
   "id": "c043",
   "place": "Barcelona, Spain",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 2.97
  },
  {
   "id": "c003",
   "place": "Bowen Island, Canada",
-  "when": "July 2026"
+  "when": "July 2026",
+  "dur": 4.67
  },
  {
   "id": "c015",
   "place": "Somewhere over Ontario",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 3.43
  },
  {
   "id": "c113",
   "place": "High Atlas, Morocco",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 2.87
  },
  {
   "id": "c055",
   "place": "Paris, France",
-  "when": "July 2025"
+  "when": "July 2025",
+  "dur": 3.37
  }
 ];
