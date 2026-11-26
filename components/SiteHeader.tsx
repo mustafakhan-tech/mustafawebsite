@@ -3,7 +3,7 @@ import { person } from "@/lib/content";
 
 export default function SiteHeader() {
   return (
-    <header className="mx-auto flex max-w-page items-center justify-between gap-4 px-6 pb-4 pt-6 md:px-12">
+    <header className="absolute inset-x-0 top-0 z-30 mx-auto flex max-w-page items-center justify-between gap-4 px-6 pb-4 pt-6 text-white md:px-12">
       <Link href="/" className="semi whitespace-nowrap text-lg no-underline">
         Mustafa Khan
       </Link>

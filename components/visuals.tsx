@@ -24,7 +24,7 @@ const brands = ["OpenAI", "Uber", "Walmart", "Nike", "JD Sports"];
 
 export function NexusVisual() {
   return (
-    <figure className="m-0 grid gap-8 rounded-[28px] bg-ink p-6 text-paper md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:p-10">
+    <figure className="m-0 grid gap-8 rounded-[28px] bg-mint p-6 text-ink md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:p-10">
       <div className="rounded-2xl bg-paper p-5 text-ink shadow-[0_24px_60px_-30px_rgba(0,0,0,0.8)]">
         <div className="mb-4 flex items-center gap-3">
           <span className="h-12 w-12 shrink-0 rounded-full bg-mint" aria-hidden="true" />
@@ -44,7 +44,7 @@ export function NexusVisual() {
         </dl>
       </div>
       <div className="flex flex-col justify-between gap-8">
-        <figcaption className="ui text-[16px] text-paper/80">
+        <figcaption className="ui text-[16px] text-ink/75">
           The shape of a creator profile I send to brand reps, with the details hidden. Every pitch starts with one of these.
         </figcaption>
         <div>
@@ -54,7 +54,7 @@ export function NexusVisual() {
               <li key={b} className="wide text-[clamp(1.5rem,3vw,2.2rem)] leading-tight">{b}</li>
             ))}
           </ul>
-          <p className="ui mt-3 text-[15px] text-paper/70">and local restaurant chains</p>
+          <p className="ui mt-3 text-[15px] text-ink/60">and local restaurant chains</p>
         </div>
       </div>
     </figure>
