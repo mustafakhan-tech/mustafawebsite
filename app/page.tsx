@@ -75,17 +75,6 @@ const pages: DeckPage[] = [
     ),
   },
   {
-    id: "travel",
-    label: "Where I've been",
-    content: (
-      <>
-        <h2 className={`${h2} mb-3`}>Where I&apos;ve been</h2>
-        <p className="prose-w mb-6 text-[1.1rem] text-white/80">Nexus Partners manages creators on six continents. I&apos;ve been to four of them myself.</p>
-        <TravelGlobe photos={photos} />
-      </>
-    ),
-  },
-  {
     id: "projects",
     label: "Projects",
     content: (
@@ -97,6 +86,17 @@ const pages: DeckPage[] = [
         <div className="divide-y divide-white/15 border-b border-white/15">
           {projects.slice(0, 3).map((p) => <ProjectRow key={p.name} project={p} />)}
         </div>
+      </>
+    ),
+  },
+  {
+    id: "travel",
+    label: "Where I've been",
+    content: (
+      <>
+        <h2 className={`${h2} mb-3`}>Where I&apos;ve been</h2>
+        <p className="prose-w mb-6 text-[1.1rem] text-white/80">Nexus Partners manages creators on six continents. I&apos;ve been to four of them myself.</p>
+        <TravelGlobe photos={photos} />
       </>
     ),
   },
